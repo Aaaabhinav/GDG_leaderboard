@@ -1,7 +1,7 @@
 import React from "react";
 import PixelBlast from "./PixelBlast";
 import Header from "./header";
-import Leaderboard from "./Leaderboard"; // Import the Leaderboard component
+import Leaderboard from "./LeaderBoard"; // Import the Leaderboard component
 
 
 const PixelBlastSection = () => {
