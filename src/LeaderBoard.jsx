@@ -45,17 +45,75 @@ const Leaderboard = () => {
           alignItems: "center",
         }}
       >
-        <h3 style={{ marginBottom: "20px" }}>Leaderboard</h3>
+        <h3 style={{ marginBottom: "30px", fontSize: "24px", fontWeight: "bold", marginTop: "-10px" }}>Leaderboard</h3>
 
-        <p style={{ fontSize: "16px", margin: "10px 0" }}>
-          Total Participants: <strong>{totalParticipants}</strong>
-        </p>
-        <p style={{ fontSize: "16px", margin: "10px 0" }}>
-          Participants completed Arcade: <strong>{arcadeCompleted}</strong>
-        </p>
-        <p style={{ fontSize: "16px", margin: "10px 0" }}>
-          Earned skilled badges: <strong>{skilledBadges}</strong>
-        </p>
+         {/* Stats Container */}
+         <div style={{ 
+           display: "flex", 
+           flexDirection: "column", 
+           gap: "15px", 
+           width: "100%",
+           padding: "0 10px",
+           flexGrow: 1,
+           justifyContent: "space-evenly"
+         }}>
+          {/* Total Participants Box */}
+          <div className="statCard">
+             <h4 style={{ 
+               margin: "0 0 8px 0", 
+               fontSize: "16px", 
+               fontWeight: "500",
+               color: "#202124"
+             }}>
+               Total Participants
+             </h4>
+             <div style={{ 
+               fontSize: "24px", 
+               fontWeight: "bold", 
+               color: "#0C6BF0"
+             }}>
+               {totalParticipants}
+             </div>
+           </div>
+
+           {/* Arcade Completed Box */}
+          <div className="statCard">
+             <h4 style={{ 
+               margin: "0 0 8px 0", 
+               fontSize: "16px", 
+               fontWeight: "500",
+               color: "#202124"
+             }}>
+               Participants completed Arcade
+             </h4>
+             <div style={{ 
+               fontSize: "24px", 
+               fontWeight: "bold", 
+               color: "#0C6BF0"
+             }}>
+               {arcadeCompleted}
+             </div>
+           </div>
+
+           {/* Skilled Badges Box */}
+          <div className="statCard">
+             <h4 style={{ 
+               margin: "0 0 8px 0", 
+               fontSize: "16px", 
+               fontWeight: "500",
+               color: "#202124"
+             }}>
+               Earned Skilled Badges
+             </h4>
+             <div style={{ 
+               fontSize: "24px", 
+               fontWeight: "bold", 
+               color: "#0C6BF0",
+             }}>
+               {skilledBadges}
+             </div>
+           </div>
+         </div>
 
         
       </div>
