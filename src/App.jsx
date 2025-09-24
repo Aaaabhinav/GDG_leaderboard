@@ -3,12 +3,13 @@ import PixelBlast from "./PixelBlast";
 import Header from "./Header";
 import Leaderboard from "./Leaderboard"; // Import the Leaderboard component
 
+
 const PixelBlastSection = () => {
   return (
     <div
       style={{
         width: "100vw",
-        height: "100vh",
+        height: "1000px",// height of the webpage needs to be set explicitly other wise the backgound wont work properly
         position: "relative",
         overflow: "hidden",
         backgroundColor: "#cd2121ff",
@@ -43,6 +44,7 @@ function App() {
       <Header />
       <PixelBlastSection />
       <Leaderboard /> {/* Add the Leaderboard component here */}
+    
     </div>
   );
 }

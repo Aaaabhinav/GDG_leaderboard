@@ -4,7 +4,7 @@ import Carousel from "./Carousel"; // Import the Carousel component
 
 const Leaderboard = () => {
   // Example images for the carousel
-  const carouselImages = ["./game_section.png", "./best.jpg"];
+  const carouselImages = ["./one.jpg", "./two.jpg"];
 
   // Define values in state (can be updated dynamically)
   const [totalParticipants, setTotalParticipants] = useState(120);
@@ -111,8 +111,11 @@ const Leaderboard = () => {
                color: "#0C6BF0",
              }}>
                {skilledBadges}
-             </div>
+             </div>  
            </div>
+
+           
+
          </div>
 
         
@@ -139,11 +142,16 @@ const Leaderboard = () => {
         </div>
 
         {/* Text below carousel */}
-        <div style={{ textAlign: "center", marginTop: "15px" }}>
-          <p className="text-gray-700 text-sm">
-            This is some important information or an announcement related to the
-            carousel or the leaderboard. Stay tuned for updates!
-          </p>
+        <div style={{ textAlign: "center", marginTop: "15px", color: "black"  }}>
+       
+<h4 style={{ 
+               margin: "0 0 8px 0", 
+               fontSize: "16px", 
+               fontWeight: "500",
+               color: "#202124"
+             }}>
+              Last year rewards included exclusive merchandise, certificates, and special recognition for top performers!
+             </h4>
         </div>
       </div>
     </div>

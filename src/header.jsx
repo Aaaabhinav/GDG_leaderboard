@@ -1,6 +1,5 @@
 import React from "react";
 import TextType from './TextType';
-//import GDGOCLogo from "./GDGOCLogo"; 
 
 const Header = () => {
   return (
@@ -32,23 +31,24 @@ const styles = {
   header: {
     width: "100vw",
     height: "110px",
-    position: "absolute",
+    position: "fixed", // ✅ changed from absolute to fixed
     top: 0,
     left: 0,
-    backgroundColor: "#ffffff", // corrected to pure white
+    backgroundColor: "#ffffff",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    zIndex: 10,
+    zIndex: 100, // keep it above everything
+    boxShadow: "0 2px 5px rgba(0,0,0,0.1)", // optional shadow
   },
   logoWrapper: {
-    position: "fixed",  // fixed to viewport
+    position: "fixed",
     top: "10px",
     left: "10px",
     display: "flex",
     alignItems: "center",
-    gap: "10px",        // space between logo and text
-    zIndex: 20,
+    gap: "10px",
+    zIndex: 200,
     textDecoration: "none",
   },
   logoImg: {
@@ -75,8 +75,7 @@ const styles = {
     whiteSpace: "nowrap",
   },
   text: {
-    fontSize: "3rem", // you can change the font size here for color reference in TextType.jsx
-  
+    fontSize: "3rem",
     fontWeight: "bold",
     margin: 0,
   },

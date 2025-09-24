@@ -42,7 +42,7 @@ const TextType = ({
   }, [variableSpeed, typingSpeed]);
 
   const getCurrentTextColor = () => {
-    if (textColors.length === 0) return '#0c6bf0ff'; // this is where you can change the color of the text in the header
+    if (textColors.length === 0) return '#0690f9ff';
     return textColors[currentTextIndex % textColors.length];
   };
 

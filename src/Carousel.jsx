@@ -58,10 +58,11 @@ const Carousel = ({ images }) => {
       />
 
       {/* Previous Button */}
-      <button
+      <button disabled 
         onClick={goToPrevious}
         style={{
           ...buttonStyle,
+          display: "none",
           position: "absolute",
           top: "50%",
           left: "15px",
@@ -72,10 +73,11 @@ const Carousel = ({ images }) => {
       </button>
 
       {/* Next Button */}
-      <button
+      <button 
         onClick={goToNext}
         style={{
           ...buttonStyle,
+          display: "none",
           position: "absolute",
           top: "50%",
           right: "15px",
