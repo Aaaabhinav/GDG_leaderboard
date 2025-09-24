@@ -1,6 +1,6 @@
 import React from "react";
 import PixelBlast from "./PixelBlast";
-import Header from "./Header";
+import Header from "./header";
 import Leaderboard from "./Leaderboard"; // Import the Leaderboard component
 
 
