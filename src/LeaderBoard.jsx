@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Carousel from "./Carousel";
-import "./Leaderboard.css";
+import "./LeaderBoard.css";
 
 const Leaderboard = () => {
   const carouselImages = ["./one.jpg", "./two.jpg"];
