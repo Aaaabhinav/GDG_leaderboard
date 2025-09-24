@@ -1,58 +1,89 @@
-// Carousel.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Carousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-slide every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 4000); // <<-- change this value to adjust slide time
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
   };
 
-  if (!images || images.length === 0) {
-    return <div className="p-4 text-center text-gray-500">No images to display.</div>;
-  }
+  const buttonStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "#222", // dark background
+    color: "white", // white arrow
+    border: "none",
+    borderRadius: "8px", // slightly rounded square
+    width: "55px",
+    height: "55px",
+    fontSize: "32px", // bigger arrows
+    fontWeight: "bold",
+    cursor: "pointer",
+  };
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-lg">
-      <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {images.map((image, index) => (
-          <div key={index} className="w-full flex-shrink-0 h-full flex items-center justify-center">
-            <img src={image} alt={`Slide ${index}`} className="max-w-full max-h-full object-contain" />
-          </div>
-        ))}
-      </div>
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        borderRadius: "12px",
+      }}
+    >
+      <img
+        src={images[currentIndex]}
+        alt="carousel"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "contain",
+          transition: "opacity 1s ease-in-out",
+        }}
+      />
 
-      {/* Navigation Buttons */}
+      {/* Previous Button */}
       <button
         onClick={goToPrevious}
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full m-2 opacity-75 hover:opacity-100 focus:outline-none"
+        style={{
+          ...buttonStyle,
+          position: "absolute",
+          top: "50%",
+          left: "15px",
+          transform: "translateY(-50%)",
+        }}
       >
-        &#9664; {/* Left arrow */}
-      </button>
-      <button
-        onClick={goToNext}
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full m-2 opacity-75 hover:opacity-100 focus:outline-none"
-      >
-        &#9654; {/* Right arrow */}
+        ‹
       </button>
 
-      {/* Dots Indicator (Optional) */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-white' : 'bg-gray-500'} focus:outline-none`}
-          ></button>
-        ))}
-      </div>
+      {/* Next Button */}
+      <button
+        onClick={goToNext}
+        style={{
+          ...buttonStyle,
+          position: "absolute",
+          top: "50%",
+          right: "15px",
+          transform: "translateY(-50%)",
+        }}
+      >
+        ›
+      </button>
     </div>
   );
 };
